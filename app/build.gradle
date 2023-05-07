@@ -31,6 +31,6 @@ jar {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
-compileJava {
-    options.release = 17
-}
+//compileJava {
+//    options.release = 17
+//}
