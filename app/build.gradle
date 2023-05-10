@@ -3,6 +3,7 @@ plugins {
     id 'se.patrikerdes.use-latest-versions' version '0.2.18'
     id 'com.github.ben-manes.versions' version '0.41.0'
     id 'application'
+    id 'checkstyle'
 }
 application {
     mainClassName = 'hexlet.code.App'
@@ -31,9 +32,24 @@ jar {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
-//compileJava {
-//    options.release = 17
-//}
+compileJava {
+    options.release = 17
+}
 run {
     standardInput = System.in
+}
+tasks.withType(Checkstyle) {
+    reports {
+        xml.required = false
+        html.required = true
+        html.stylesheet resources.text.fromFile('config/xsl/checkstyle-custom.xsl')
+    }
+}
+checkstyle {
+    toolVersion = '10.3.3'
+}
+tasks.withType(Checkstyle) {
+    reports {
+        sarif.required = true
+    }
 }
