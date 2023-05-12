@@ -11,7 +11,7 @@ public class Even {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         var attempts = 0;
         while (attempts < 3) {
-            int random = (int)(Math.random() * 20);
+            int random = (int) (Math.random() * 20);
             var correctAnswer = "";
             if (random % 2 == 0) {
                 correctAnswer = "yes";

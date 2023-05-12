@@ -6,19 +6,13 @@ public class App {
         Scanner scan = new Scanner(System.in);
         int numberGame = scan.nextInt();
         switch (numberGame) {
-            case 1:
+            case 1 -> {
                 System.out.println("Welcome to the Brain Games!");
                 Cli.greet();
-                break;
-            case 2:
-                Even.even();
-                break;
-            case 0:
-                System.out.println("Goodbye!");
-                break;
-            default:
-                System.out.println("Invalid choice, please try again");
-                break;
+            }
+            case 2 -> Even.even();
+            case 0 -> System.out.println("Goodbye!");
+            default -> System.out.println("Invalid choice, please try again!");
         }
     }
 }
