@@ -31,7 +31,7 @@ public class Even {
             }
 
         }
-        if (attempts >= 2) {
+        if (attempts > 2) {
             System.out.println("Congratulations, " + name + '!');
         }
     }
