@@ -9,9 +9,13 @@ public class App {
             case 1:
                 System.out.println("Welcome to the Brain Games!");
                 Cli.greet();
-            break;
+                break;
             case 0:
-            break;
+                System.out.println("Goodbye!");
+                break;
+            default:
+                System.out.println("Invalid choice, please try again");
+                break;
         }
     }
 }
