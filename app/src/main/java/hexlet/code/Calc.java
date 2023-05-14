@@ -1,6 +1,5 @@
 package hexlet.code;
 import java.util.Scanner;
-import java.util.Random;
 
 public class Calc {
     public static void calc() {
@@ -15,8 +14,7 @@ public class Calc {
             int randomNumb1 = 1 + (int) (Math.random() * 20);
             int randomNumb2 = 1 + (int) (Math.random() * 20);
             char[] operators = {'+', '-', '*'};
-            Random random = new Random();
-            int randomOperator = random.nextInt(3);
+            int randomOperator = (int) (Math.random() * 3);
             char operator = operators[randomOperator];
             int correctAnswer = 0;
 
