@@ -16,20 +16,17 @@ public class Calc {
             char[] operators = {'+', '-', '*'};
             int randomOperator = (int) (Math.random() * 3);
             char operator = operators[randomOperator];
-            int correctAnswer = 0;
+ //           int correctAnswer = 0;
 
-            switch (operator) {
-                case '+' -> {
-                    correctAnswer = randomNumb1 + randomNumb2;
+            int correctAnswer = switch (operator) {
+                case '+' -> randomNumb1 + randomNumb2;
+                case '-' -> randomNumb1 - randomNumb2;
+                case '*' -> randomNumb1 * randomNumb2;
+                default -> {
+                    System.out.println("null");
+                    yield 0;
                 }
-                case '-' -> {
-                    correctAnswer = randomNumb1 - randomNumb2;
-                }
-                case '*' -> {
-                    correctAnswer = randomNumb1 * randomNumb2;
-                }
-                default -> System.out.println("null");
-            }
+            };
 
             System.out.println("Question: " + randomNumb1 + operator + randomNumb2 + "\nYour answer: ");
             Scanner scan = new Scanner(System.in);
