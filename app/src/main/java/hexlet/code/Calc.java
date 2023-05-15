@@ -16,7 +16,6 @@ public class Calc {
             char[] operators = {'+', '-', '*'};
             int randomOperator = (int) (Math.random() * 3);
             char operator = operators[randomOperator];
- //           int correctAnswer = 0;
 
             int correctAnswer = switch (operator) {
                 case '+' -> randomNumb1 + randomNumb2;
