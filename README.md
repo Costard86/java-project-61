@@ -3,3 +3,4 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/c0b6415ad90d0294d6c7/maintainability)](https://codeclimate.com/github/Costard86/java-project-61/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/c0b6415ad90d0294d6c7/test_coverage)](https://codeclimate.com/github/Costard86/java-project-61/test_coverage)
 https://asciinema.org/a/rwb87BJadNvDOWhfEPdmdN8Jm
+https://asciinema.org/a/jTPUZiMBG0NtIHOIh3QPtgipK
