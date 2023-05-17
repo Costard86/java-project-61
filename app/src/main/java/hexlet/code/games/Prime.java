@@ -3,12 +3,11 @@ import hexlet.code.Engine;
 
 public class Prime {
     public static void prime() {
-        int maxRandom = 100;
         Engine.greeting();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         var attempts = 0;
         while (attempts < 3) {
-            int number = 1 + (int) (Math.random() * maxRandom);
+            int number = 1 + (int) (Math.random() * 100);
             String correctAnswer = "yes";
             if (number < 2) {
                 correctAnswer = "no";
