@@ -5,20 +5,22 @@ import hexlet.code.Engine;
 
 public class Progression {
     public static void progression() {
+        int maxRandom = 10;
+        int maxStep = 5;
         Engine.greeting();
         System.out.println("What number is missing in the progression?");
         var attempts = 0;
         while (attempts < 3) {
-            int startElement = 1 + (int) (Math.random() * 10);
-            int step = 1 + (int) (Math.random() * 7);
+            int startElement = 1 + (int) (Math.random() * maxRandom);
+            int step = 1 + (int) (Math.random() * maxStep);
             var progression = new String[10];
 
-            for (var i = 0; i < 10; i++) {
+            for (var i = 0; i < progression.length; i++) {
                 progression[i] = Integer.toString(startElement);
                 startElement = startElement + step;
             }
 
-            int randomMissElem = (int) (Math.random() * 10);
+            int randomMissElem = (int) (Math.random() * maxRandom);
             var temp = progression[randomMissElem];
             progression[randomMissElem] = "..";
             String masToString = "";

@@ -3,12 +3,13 @@ import hexlet.code.Engine;
 
 public class Calc {
     public static void calc() {
+        int maxRandom = 20;
         Engine.greeting();
         System.out.println("What is the result of the expression?");
         var attempts = 0;
         while (attempts < 3) {
-            int randomNumb1 = 1 + (int) (Math.random() * 20);
-            int randomNumb2 = 1 + (int) (Math.random() * 20);
+            int randomNumb1 = 1 + (int) (Math.random() * maxRandom);
+            int randomNumb2 = 1 + (int) (Math.random() * maxRandom);
             char[] operators = {'+', '-', '*'};
             int randomOperator = (int) (Math.random() * 3);
             char operator = operators[randomOperator];
