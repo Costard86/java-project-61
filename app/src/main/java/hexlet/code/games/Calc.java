@@ -1,13 +1,9 @@
 package hexlet.code.games;
-import java.util.Scanner;
+import hexlet.code.Engine;
 
 public class Calc {
     public static void calc() {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name?");
-        Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine();
-        System.out.println("Hello, " + name + "!");
+        Engine.greeting();
         System.out.println("What is the result of the expression?");
         var attempts = 0;
         while (attempts < 3) {
@@ -17,7 +13,7 @@ public class Calc {
             int randomOperator = (int) (Math.random() * 3);
             char operator = operators[randomOperator];
 
-            int correctAnswer = switch (operator) {
+            int resultCalc = switch (operator) {
                 case '+' -> randomNumb1 + randomNumb2;
                 case '-' -> randomNumb1 - randomNumb2;
                 case '*' -> randomNumb1 * randomNumb2;
@@ -26,21 +22,19 @@ public class Calc {
                     yield 0;
                 }
             };
+            String answer = randomNumb1 + " " + operator + " " + randomNumb2;
+            String correctAnswer = Integer.toString(resultCalc);
 
-            System.out.println("Question: " + randomNumb1 + operator + randomNumb2 + "\nYour answer: ");
-            Scanner scan = new Scanner(System.in);
-            int number = scan.nextInt();
-            if (number == correctAnswer) {
-                System.out.println("Correct!");
-                attempts = attempts + 1;
+            String result = Engine.game(answer, correctAnswer);
+            if (result.equals("Correct!")) {
+                attempts++;
             } else {
-                System.out.println('\'' + Integer.toString(number) + '\'' + " is wrong answer ;(. Correct answer was "
-                        + '\'' + correctAnswer + '\'' + "\nLet's try again, " + name + '!');
+                System.out.println(result);
                 break;
             }
         }
         if (attempts > 2) {
-            System.out.println("Congratulations, " + name + '!');
+            System.out.println("Congratulations, " + Engine.name + '!');
         }
     }
 }

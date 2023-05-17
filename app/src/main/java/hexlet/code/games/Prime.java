@@ -1,14 +1,10 @@
 package hexlet.code.games;
-import java.util.Scanner;
+import hexlet.code.Engine;
 
 public class Prime {
     public static void prime() {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name?");
-        Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine();
-        System.out.println("Hello, " + name + "!");
-        System.out.println("What number is missing in the progression?");
+        Engine.greeting();
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         var attempts = 0;
         while (attempts < 3) {
             int number = 1 + (int) (Math.random() * 100);
@@ -23,22 +19,17 @@ public class Prime {
                 }
                 divider++;
             }
-            var strNumber = Integer.toString(number);
-            System.out.println("Question: " + strNumber + "\nYour answer: ");
-
-            Scanner answer = new Scanner(System.in);
-            String userAnswer = answer.nextLine();
-            if (userAnswer.equals(correctAnswer)) {
-                System.out.println("Correct!");
-                attempts = attempts + 1;
+            String answer = Integer.toString(number);
+            String result = Engine.game(answer, correctAnswer);
+            if (result.equals("Correct!")) {
+                attempts++;
             } else {
-                System.out.println('\'' + userAnswer + '\'' + " is wrong answer ;(. Correct answer was "
-                        + '\'' + correctAnswer + '\'' + "\nLet's try again, " + name + '!');
+                System.out.println(result);
                 break;
             }
         }
         if (attempts > 2) {
-            System.out.println("Congratulations, " + name + '!');
+            System.out.println("Congratulations, " + Engine.name + '!');
         }
     }
 }

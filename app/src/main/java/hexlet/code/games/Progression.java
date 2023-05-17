@@ -1,18 +1,16 @@
 package hexlet.code.games;
-import java.util.Scanner;
+import hexlet.code.Engine;
+
+//import java.util.Scanner;
 
 public class Progression {
     public static void progression() {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name?");
-        Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine();
-        System.out.println("Hello, " + name + "!");
+        Engine.greeting();
         System.out.println("What number is missing in the progression?");
         var attempts = 0;
         while (attempts < 3) {
             int startElement = 1 + (int) (Math.random() * 10);
-            int step = 1 + (int) (Math.random() * 5);
+            int step = 1 + (int) (Math.random() * 7);
             var progression = new String[10];
 
             for (var i = 0; i < 10; i++) {
@@ -28,21 +26,19 @@ public class Progression {
                 masToString = masToString + progression[i] + " ";
             }
 
-            System.out.println("Question: " + masToString + "\nYour answer: ");
+            String answer = masToString;
+            String correctAnswer = Integer.toString(Integer.parseInt(temp));
 
-            Scanner answer = new Scanner(System.in);
-            String userAnswer = answer.nextLine();
-            if (userAnswer.equals(temp)) {
-                System.out.println("Correct!");
-                attempts = attempts + 1;
+            String result = Engine.game(answer, correctAnswer);
+            if (result.equals("Correct!")) {
+                attempts++;
             } else {
-                System.out.println('\'' + userAnswer + '\'' + " is wrong answer ;(. Correct answer was "
-                        + temp + "\nLet's try again, " + name + '!');
+                System.out.println(result);
                 break;
             }
         }
         if (attempts > 2) {
-            System.out.println("Congratulations, " + name + '!');
+            System.out.println("Congratulations, " + Engine.name + '!');
         }
     }
 }
