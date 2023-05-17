@@ -7,7 +7,7 @@ public class Prime {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         var attempts = 0;
         while (attempts < 3) {
-            int number = 1 + (int) (Math.random() * 100);
+            int number = 1 + (int) (Math.random() * 80);
             String correctAnswer = "yes";
             if (number < 2) {
                 correctAnswer = "no";
