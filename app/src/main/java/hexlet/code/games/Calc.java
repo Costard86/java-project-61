@@ -2,15 +2,18 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Calc {
+    private static final int ROUND_COUNT = 3;
+    private static final int RANDOM_NUMBER = 20;
+    private static final int RANDOM_OPERATOR = 3;
     public static void calc() {
         Engine.greeting();
         System.out.println("What is the result of the expression?");
         var attempts = 0;
-        while (attempts < 3) {
-            int randomNumb1 = 1 + (int) (Math.random() * 20);
-            int randomNumb2 = 1 + (int) (Math.random() * 20);
+        while (attempts < ROUND_COUNT) {
+            int randomNumb1 = 1 + (int) (Math.random() * RANDOM_NUMBER);
+            int randomNumb2 = 1 + (int) (Math.random() * RANDOM_NUMBER);
             char[] operators = {'+', '-', '*'};
-            int randomOperator = (int) (Math.random() * 3);
+            int randomOperator = (int) (Math.random() * RANDOM_OPERATOR);
             char operator = operators[randomOperator];
 
             int resultCalc = switch (operator) {
