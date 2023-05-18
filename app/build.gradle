@@ -43,8 +43,8 @@ run {
 checkstyle {
     toolVersion = '10.3.3'
 }
-tasks.withType(Checkstyle) {
-    reports {
-        sarif.required = true
-    }
-}
+//tasks.withType(Checkstyle) {
+//    reports {
+//        sarif.required = true
+//    }
+//}
