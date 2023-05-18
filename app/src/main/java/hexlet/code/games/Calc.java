@@ -37,7 +37,7 @@ public class Calc {
             }
         }
         if (attempts > 2) {
-            System.out.println("Congratulations, " + Engine.name + '!');
+            System.out.println("Congratulations, " + Engine.getName() + '!');
         }
     }
 }
