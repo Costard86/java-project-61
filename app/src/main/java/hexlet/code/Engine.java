@@ -25,7 +25,7 @@ public class Engine {
                 attempts++;
             } else {
                 System.out.printf('\'' + userAnswer + '\'' + " is wrong answer ;(. Correct answer was "
-                        + '\'' + correctAnswer + '\'' + "\nLet's try again " + name + "!");
+                        + '\'' + correctAnswer + '\'' + "\nLet's try again, " + name + "!");
                 break;
             }
         }
