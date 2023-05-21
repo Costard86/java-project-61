@@ -1,16 +1,19 @@
 package hexlet.code.games;
+
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class GCD {
     private static final int ROUND_COUNT = 3;
-    private static final int RANDOM_NUMBER = 50;
+    private static final int MIN_NUMBER = 1;
+    private static final int MAX_NUMBER = 50;
     public static void gcd() {
-        Engine.greeting();
-        System.out.println("Find the greatest common divisor of given numbers.");
+        String exercise = "Find the greatest common divisor of given numbers.";
         var attempts = 0;
+        String[][] questionsAndAnswers = new String[ROUND_COUNT][2];
         while (attempts < ROUND_COUNT) {
-            int randomNumb1 = 1 + (int) (Math.random() * RANDOM_NUMBER);
-            int randomNumb2 = 1 + (int) (Math.random() * RANDOM_NUMBER);
+            int randomNumb1 = Utils.generateNumber(MIN_NUMBER, MAX_NUMBER);
+            int randomNumb2 = Utils.generateNumber(MIN_NUMBER, MAX_NUMBER);
             String answer = randomNumb1 + " " + randomNumb2;
             while (randomNumb1 != 0 && randomNumb2 != 0) {
                 if (randomNumb1 > randomNumb2) {
@@ -23,16 +26,11 @@ public class GCD {
 
             String correctAnswer = Integer.toString(gcd);
 
-            String result = Engine.game(answer, correctAnswer);
-            if (result.equals("Correct!")) {
-                attempts++;
-            } else {
-                System.out.println(result);
-                break;
-            }
+            questionsAndAnswers[attempts][0] = answer;
+            questionsAndAnswers[attempts][1] = correctAnswer;
+            attempts++;
         }
-        if (attempts > 2) {
-            System.out.println("Congratulations, " + Engine.getName() + '!');
-        }
+        Engine.gameRun(questionsAndAnswers, exercise);
     }
 }
+

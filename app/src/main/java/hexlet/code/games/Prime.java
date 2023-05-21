@@ -1,15 +1,17 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Prime {
     private static final int ROUND_COUNT = 3;
-    private static final int RANDOM_NUMBER = 80;
+    private static final int MIN_NUMBER = 1;
+    private static final int MAX_NUMBER = 80;
     public static void prime() {
-        Engine.greeting();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        String exercise = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         var attempts = 0;
+        String[][] questionsAndAnswers = new String[ROUND_COUNT][2];
         while (attempts < ROUND_COUNT) {
-            int number = 1 + (int) (Math.random() * RANDOM_NUMBER);
+            int number = Utils.generateNumber(MIN_NUMBER, MAX_NUMBER);
             String correctAnswer = "yes";
             if (number < 2) {
                 correctAnswer = "no";
@@ -22,16 +24,11 @@ public class Prime {
                 divider++;
             }
             String answer = Integer.toString(number);
-            String result = Engine.game(answer, correctAnswer);
-            if (result.equals("Correct!")) {
-                attempts++;
-            } else {
-                System.out.println(result);
-                break;
-            }
+            questionsAndAnswers[attempts][0] = answer;
+            questionsAndAnswers[attempts][1] = correctAnswer;
+            attempts++;
         }
-        if (attempts > 2) {
-            System.out.println("Congratulations, " + Engine.getName() + '!');
-        }
+        Engine.gameRun(questionsAndAnswers, exercise);
     }
 }
+

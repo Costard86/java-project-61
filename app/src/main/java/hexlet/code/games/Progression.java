@@ -1,20 +1,19 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
-
-//import java.util.Scanner;
+import hexlet.code.Utils;
 
 public class Progression {
     private static final int ROUND_COUNT = 3;
-    private static final int RANDOM_NUMBER = 10;
-    private static final int RANDOM_STEP = 7;
+    private static final int MIN_NUMBER = 1;
+    private static final int MAX_NUMBER = 10;
     private static final int MASSIVE_ELEMENTS = 10;
     public static void progression() {
-        Engine.greeting();
-        System.out.println("What number is missing in the progression?");
+        String exercise = "What number is missing in the progression?";
         var attempts = 0;
+        String[][] questionsAndAnswers = new String[ROUND_COUNT][2];
         while (attempts < ROUND_COUNT) {
-            int startElement = 1 + (int) (Math.random() * RANDOM_NUMBER);
-            int step = 1 + (int) (Math.random() * RANDOM_STEP);
+            int startElement = Utils.generateNumber(MIN_NUMBER, MAX_NUMBER);
+            int step = Utils.generateNumber(MIN_NUMBER, MAX_NUMBER);
             var progression = new String[MASSIVE_ELEMENTS];
 
             for (var i = 0; i < MASSIVE_ELEMENTS; i++) {
@@ -33,16 +32,10 @@ public class Progression {
             String answer = masToString;
             String correctAnswer = Integer.toString(Integer.parseInt(temp));
 
-            String result = Engine.game(answer, correctAnswer);
-            if (result.equals("Correct!")) {
-                attempts++;
-            } else {
-                System.out.println(result);
-                break;
-            }
+            questionsAndAnswers[attempts][0] = answer;
+            questionsAndAnswers[attempts][1] = correctAnswer;
+            attempts++;
         }
-        if (attempts > 2) {
-            System.out.println("Congratulations, " + Engine.getName() + '!');
-        }
+        Engine.gameRun(questionsAndAnswers, exercise);
     }
 }
