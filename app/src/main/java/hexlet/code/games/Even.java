@@ -3,25 +3,23 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Even {
-    private static final int ROUND_COUNT = 3;
     private static final int MIN_NUMBER = 1;
-    private static final int MAX_NUMBER = 20;
+    private static final int MAX_NUMBER = 50;
+    private static final String EXERCISE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     public static void even() {
-        String exercise = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+
         var attempts = 0;
-        String[][] questionsAndAnswers = new String[ROUND_COUNT][2];
-        while (attempts < ROUND_COUNT) {
+        String[][] questionsAndAnswers = new String[Engine.ROUND_COUNT][2];
+        while (attempts < Engine.ROUND_COUNT) {
             int random = Utils.generateNumber(MIN_NUMBER, MAX_NUMBER);
-            var correctAnswer = "";
-            if (random % 2 == 0) {
-                correctAnswer = "yes";
-            } else {
-                correctAnswer = "no";
-            }
+            String correctAnswer = Even.evenOdd(random);
             questionsAndAnswers[attempts][0] = String.valueOf(random);
             questionsAndAnswers[attempts][1] = correctAnswer;
             attempts++;
         }
-        Engine.gameRun(questionsAndAnswers, exercise);
+        Engine.gameRun(questionsAndAnswers, EXERCISE);
+    }
+    public static String evenOdd(int number) {
+        return number % 2 == 0 ? "yes" : "no";
     }
 }
