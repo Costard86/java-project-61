@@ -14,7 +14,7 @@ public class Progression {
 
             var rowElements = Progression.rowElements();
 
-            int randomMissElem = Utils.generateNumber(MIN_NUMBER, MAX_NUMBER);
+            int randomMissElem = Utils.generateNumber(MIN_NUMBER, MAX_NUMBER - 1);
 
             var temp = rowElements[randomMissElem];
 
