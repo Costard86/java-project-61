@@ -20,17 +20,17 @@ public class Engine {
             System.out.print("Your answer: ");
             Scanner answerUser = new Scanner(System.in);
             String userAnswer = answerUser.nextLine();
-            if (userAnswer.equals(correctAnswer)) {
-                System.out.println("Correct!");
-                attempts++;
-            } else {
-                System.out.printf('\'' + userAnswer + '\'' + " is wrong answer ;(. Correct answer was "
-                        + '\'' + correctAnswer + '\'' + "\nLet's try again, " + name + "!");
-                break;
+            if (!userAnswer.equals(correctAnswer)) {
+                System.out.println(
+                        "'" + userAnswer + "' is wrong answer ;(. "
+                                + "Correct answer was '" + correctAnswer + "'."
+                );
+                System.out.println("Let's try again, " + name + "!");
+                return;
             }
+            System.out.println("Correct!");
+            attempts++;
         }
-        if (attempts > 2) {
-            System.out.println("Congratulations, " + name + '!');
-        }
+        System.out.println("Congratulations, " + name + '!');
     }
 }
