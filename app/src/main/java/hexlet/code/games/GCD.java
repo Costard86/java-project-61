@@ -15,14 +15,17 @@ public class GCD {
             int randomNumb1 = Utils.generateNumber(MIN_NUMBER, MAX_NUMBER);
             int randomNumb2 = Utils.generateNumber(MIN_NUMBER, MAX_NUMBER);
             String answer = randomNumb1 + " " + randomNumb2;
-            String correctAnswer = GCD.isGcd(randomNumb1, randomNumb2);
+
+            int resultGcd = GCD.gcd(randomNumb1, randomNumb2);
+            String correctAnswer = Integer.toString(resultGcd);
+
             questionsAndAnswers[attempts][0] = answer;
             questionsAndAnswers[attempts][1] = correctAnswer;
             attempts++;
         }
         Engine.gameRun(questionsAndAnswers, EXERCISE);
     }
-    public static String isGcd(int numb1, int numb2) {
+    public static int gcd(int numb1, int numb2) {
         while (numb1 != 0 && numb2 != 0) {
             if (numb1 > numb2) {
                 numb1 = numb1 % numb2;
@@ -30,8 +33,7 @@ public class GCD {
                 numb2 = numb2 % numb1;
             }
         }
-        int temp = numb1 + numb2;
-        return Integer.toString(temp);
+        return numb1 + numb2;
     }
 }
 

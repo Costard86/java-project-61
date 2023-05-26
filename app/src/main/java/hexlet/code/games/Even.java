@@ -12,14 +12,14 @@ public class Even {
         String[][] questionsAndAnswers = new String[Engine.ROUND_COUNT][2];
         while (attempts < Engine.ROUND_COUNT) {
             int random = Utils.generateNumber(MIN_NUMBER, MAX_NUMBER);
-            String correctAnswer = Even.evenOdd(random);
+            String correctAnswer = Even.isEven(random) ? "yes" : "no";
             questionsAndAnswers[attempts][0] = String.valueOf(random);
             questionsAndAnswers[attempts][1] = correctAnswer;
             attempts++;
         }
         Engine.gameRun(questionsAndAnswers, EXERCISE);
     }
-    public static String evenOdd(int number) {
-        return number % 2 == 0 ? "yes" : "no";
+    public static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }

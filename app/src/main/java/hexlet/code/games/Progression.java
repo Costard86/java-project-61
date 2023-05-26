@@ -11,15 +11,15 @@ public class Progression {
         var attempts = 0;
         String[][] questionsAndAnswers = new String[Engine.ROUND_COUNT][2];
         while (attempts < Engine.ROUND_COUNT) {
-
-            var rowElements = Progression.rowElements();
-
+            int first = Utils.generateNumber(MIN_NUMBER, MAX_NUMBER);
+            int step = Utils.generateNumber(MIN_NUMBER + 1, MAX_NUMBER);
             int randomMissElem = Utils.generateNumber(MIN_NUMBER, MAX_NUMBER - 1);
 
-            var temp = rowElements[randomMissElem];
+            String[] progression = makeProgression(first, step, MASSIVE_ELEMENTS);
 
-            String answer = Progression.missElement(rowElements, randomMissElem);
-            String correctAnswer = Integer.toString(Integer.parseInt(temp));
+            String correctAnswer = progression[randomMissElem];
+            progression[randomMissElem] = "..";
+            String answer = String.join(" ", progression);
 
             questionsAndAnswers[attempts][0] = answer;
             questionsAndAnswers[attempts][1] = correctAnswer;
@@ -27,23 +27,12 @@ public class Progression {
         }
         Engine.gameRun(questionsAndAnswers, EXERCISE);
     }
-    public static String[] rowElements() {
-        int startElement = Utils.generateNumber(MIN_NUMBER, MAX_NUMBER);
-        int step = Utils.generateNumber(MIN_NUMBER + 1, MAX_NUMBER);
-        var progression = new String[MASSIVE_ELEMENTS];
-
-        for (var i = 0; i < MASSIVE_ELEMENTS; i++) {
-            progression[i] = Integer.toString(startElement);
-            startElement = startElement + step;
+    public static String[] makeProgression(int first, int step, int progressionLength) {
+        var progression = new String[progressionLength];
+        for (var i = 0; i < progressionLength; i++) {
+            progression[i] = Integer.toString(first);
+            first = first + step;
         }
         return progression;
-    }
-    public static String missElement(String[] row, int position) {
-        row[position] = "..";
-        String masToString = "";
-        for (var i = 0; i < MASSIVE_ELEMENTS; i++) {
-            masToString = masToString + row[i] + " ";
-        }
-        return masToString;
     }
 }

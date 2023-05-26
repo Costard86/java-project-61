@@ -13,7 +13,7 @@ public class Prime {
             int number = Utils.generateNumber(MIN_NUMBER, MAX_NUMBER);
             String answer = Integer.toString(number);
 
-            String correctAnswer = Prime.isPrime(number);
+            String correctAnswer = Prime.isPrime(number) ? "yes" : "no";
 
             questionsAndAnswers[attempts][0] = answer;
             questionsAndAnswers[attempts][1] = correctAnswer;
@@ -21,19 +21,18 @@ public class Prime {
         }
         Engine.gameRun(questionsAndAnswers, EXERCISE);
     }
-    public static String isPrime(int numb) {
-        String answer = "yes";
+    public static boolean isPrime(int numb) {
         if (numb < 2) {
-            answer = "no";
+            return false;
         }
         var divider = 2;
         while (divider <= numb / 2) {
             if (numb % divider == 0) {
-                answer = "no";
+                return false;
             }
             divider++;
         }
-        return answer;
+        return true;
     }
 }
 
