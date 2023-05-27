@@ -9,7 +9,7 @@ public class Calc {
     private static final int MAX_NUMBER_OP = 2;
     private static final char[] OPERATORS = {'+', '-', '*'};
     private static final String EXERCISE = "What is the result of the expression?";
-    public static void calc() {
+    public static void runGame() {
         var attempts = 0;
         String[][] questionsAndAnswers = new String[Engine.ROUND_COUNT][2];
         while (attempts < Engine.ROUND_COUNT) {
@@ -18,7 +18,9 @@ public class Calc {
             int randomOperator = Utils.generateNumber(MIN_NUMBER_OP, MAX_NUMBER_OP);
             char operator = OPERATORS[randomOperator];
             String answer = randomNumb1 + " " + operator + " " + randomNumb2;
-            String correctAnswer = Calc.toCalc(randomNumb1, randomNumb2, operator);
+
+            int resultCalc = Calc.toCalc(randomNumb1, randomNumb2, operator);
+            String correctAnswer = Integer.toString(resultCalc);
 
             questionsAndAnswers[attempts][0] = answer;
             questionsAndAnswers[attempts][1] = correctAnswer;
@@ -26,13 +28,13 @@ public class Calc {
         }
         Engine.gameRun(questionsAndAnswers, EXERCISE);
     }
-    public static String toCalc(int num1, int num2, char operate) {
+    public static int toCalc(int num1, int num2, char operate) {
         int resultCalc = switch (operate) {
             case '+' -> num1 + num2;
             case '-' -> num1 - num2;
             case '*' -> num1 * num2;
             default -> throw new RuntimeException("Unknown operator: " + operate);
         };
-        return Integer.toString(resultCalc);
+        return resultCalc;
     }
 }

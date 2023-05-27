@@ -15,11 +15,11 @@ public class App {
         String numberGame = numGame.nextLine();
         switch (numberGame) {
             case "1" -> Cli.greet();
-            case "2" -> Even.even();
-            case "3" -> Calc.calc();
-            case "4" -> GCD.gcd();
-            case "5" -> Progression.progression();
-            case "6" -> Prime.prime();
+            case "2" -> Even.runGame();
+            case "3" -> Calc.runGame();
+            case "4" -> GCD.runGame();
+            case "5" -> Progression.runGame();
+            case "6" -> Prime.runGame();
             case "0" -> System.out.println("Goodbye!");
             default -> System.out.println("Invalid choice, please try again!");
         }

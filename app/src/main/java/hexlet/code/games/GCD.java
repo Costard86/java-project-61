@@ -7,7 +7,7 @@ public class GCD {
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 50;
     private static final String EXERCISE = "Find the greatest common divisor of given numbers.";
-    public static void gcd() {
+    public static void runGame() {
 
         var attempts = 0;
         String[][] questionsAndAnswers = new String[Engine.ROUND_COUNT][2];

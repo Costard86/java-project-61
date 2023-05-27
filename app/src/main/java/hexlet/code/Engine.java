@@ -12,10 +12,9 @@ public class Engine {
         String name = sc.nextLine();
         System.out.println("Hello, " + name + "!");
         System.out.println(exercise);
-        var attempts = 0;
-        while (attempts < ROUND_COUNT) {
-            String question = questionsAndAnswers[attempts][0];
-            String correctAnswer = questionsAndAnswers[attempts][1];
+        for (String[] qa : questionsAndAnswers) {
+            String question = qa[0];
+            String correctAnswer = qa[1];
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
             Scanner answerUser = new Scanner(System.in);
@@ -29,7 +28,6 @@ public class Engine {
                 return;
             }
             System.out.println("Correct!");
-            attempts++;
         }
         System.out.println("Congratulations, " + name + '!');
     }

@@ -6,7 +6,7 @@ public class Even {
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 50;
     private static final String EXERCISE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    public static void even() {
+    public static void runGame() {
 
         var attempts = 0;
         String[][] questionsAndAnswers = new String[Engine.ROUND_COUNT][2];

@@ -6,7 +6,7 @@ public class Prime {
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 80;
     private static final String EXERCISE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    public static void prime() {
+    public static void runGame() {
         var attempts = 0;
         String[][] questionsAndAnswers = new String[Engine.ROUND_COUNT][2];
         while (attempts < Engine.ROUND_COUNT) {

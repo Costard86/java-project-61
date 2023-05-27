@@ -7,7 +7,7 @@ public class Progression {
     private static final int MAX_NUMBER = 10;
     private static final int MASSIVE_ELEMENTS = 10;
     private static final String EXERCISE = "What number is missing in the progression?";
-    public static void progression() {
+    public static void runGame() {
         var attempts = 0;
         String[][] questionsAndAnswers = new String[Engine.ROUND_COUNT][2];
         while (attempts < Engine.ROUND_COUNT) {
